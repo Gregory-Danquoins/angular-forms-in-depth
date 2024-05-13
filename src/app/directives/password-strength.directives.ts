@@ -5,7 +5,7 @@ import {
   ValidationErrors,
   Validator,
 } from "@angular/forms";
-import { createPasswordStrengthValidator } from "../services/password-strengh.validator";
+import { createPasswordStrengthValidator } from "../validators/password-strengh.validator";
 
 @Directive({
   selector: "[passwordStrength]",
