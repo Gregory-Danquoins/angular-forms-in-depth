@@ -2,6 +2,13 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { courseTitleValidator } from "../../validators/course-title.validator";
 import { CoursesService } from "../../services/courses.service";
+import { Observable } from "rxjs";
+import { filter } from "rxjs/operators";
+
+interface CourseCategories {
+  code: string;
+  description: string;
+}
 
 @Component({
   selector: "create-course-step-1",
@@ -14,7 +21,20 @@ export class CreateCourseStep1Component implements OnInit {
     private coursesService: CoursesService
   ) {}
 
-  ngOnInit() {}
+  courseCategories$: Observable<CourseCategories[]>;
+
+  ngOnInit() {
+    this.courseCategories$ = this.coursesService.findCourseCategories();
+    const draft = localStorage.getItem("STEP_1");
+
+    if (draft) {
+      this.form.setValue(JSON.parse(draft));
+    }
+
+    this.form.valueChanges
+      .pipe(filter(() => this.form.valid))
+      .subscribe((val) => localStorage.setItem("STEP_1", JSON.stringify(val)));
+  }
 
   form = this.fb.group({
     title: [
@@ -29,6 +49,10 @@ export class CreateCourseStep1Component implements OnInit {
         updateOn: "blur",
       },
     ],
+    releaseAt: [new Date(), Validators.required],
+    downloadAllowed: [false, Validators.requiredTrue],
+    longDescription: ["", [Validators.required, Validators.minLength(3)]],
+    category: ["BEGINNER", [Validators.required]],
   });
 
   get courseTitle() {
