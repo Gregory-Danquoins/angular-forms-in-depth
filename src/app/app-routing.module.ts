@@ -11,7 +11,7 @@ import { LoginReactiveComponent } from "./login-reactive/login-reactive.componen
 const routes: Routes = [
   {
     path: "",
-    component: HomeComponent,
+    component: CreateCourseComponent,
   },
   {
     path: "about",
