@@ -8,8 +8,6 @@ import { MatMenuModule } from "@angular/material/menu";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatCardModule } from "@angular/material/card";
-import { HomeComponent } from "./home/home.component";
-import { AboutComponent } from "./about/about.component";
 import { MatTabsModule } from "@angular/material/tabs";
 import { CoursesCardListComponent } from "./courses-card-list/courses-card-list.component";
 import { CourseComponent } from "./course/course.component";
@@ -28,7 +26,6 @@ import { CoursesService } from "./services/courses.service";
 import { HttpClientModule } from "@angular/common/http";
 import { CourseDialogComponent } from "./course-dialog/course-dialog.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { LoginComponent } from "./login/login.component";
 import { CreateCourseComponent } from "./create-course/create-course.component";
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatRadioModule } from "@angular/material/radio";
@@ -40,26 +37,21 @@ import { CreateCourseStep3Component } from "./create-course/create-course-step-3
 import { CreateCourseStep1Component } from "./create-course/create-course-step-1/create-course-step-1.component";
 import { FileUploadComponent } from "./file-upload/file-upload.component";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
-import { LoginReactiveComponent } from "./login-reactive/login-reactive.component";
 import { PasswordStrengthDirective } from "./directives/password-strength.directives";
-import { OnlyOneErrorPipe } from "./pipes/Only-one-error.pipe";
+import { OnlyOneErrorPipe } from "./pipes/only-one-error.pipe";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    AboutComponent,
     CourseComponent,
     CoursesCardListComponent,
     CourseDialogComponent,
-    LoginComponent,
     CreateCourseComponent,
     CreateCourseStep1Component,
     CreateCourseStep2Component,
     CreateCourseStep3Component,
     AddressFormComponent,
     FileUploadComponent,
-    LoginReactiveComponent,
     PasswordStrengthDirective,
     OnlyOneErrorPipe,
   ],
